@@ -131,7 +131,7 @@ jobs:
         author_name: github-actions
         author_email: 41898282+github-actions[bot]@users.noreply.github.com
         message: "[ci] bump version ${{ steps.release_vars.outputs.version }} -> ${{ steps.next_vars.outputs.next_version }}"
-        push: "origin ${{ steps.release_vars.outputs.target_branch }}"
+        branch: "${{ steps.release_vars.outputs.target_branch }}"
 
     - name: "Close old milestone"
       uses: julb/action-manage-milestone@v1
