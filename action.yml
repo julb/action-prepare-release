@@ -1,0 +1,38 @@
+name: Prepare release
+description: "Prepare the release and output release vars"
+author: "julb"
+branding:
+  icon: tag
+  color: blue
+inputs:
+  version:
+    description: "The version to release. If not provided, it will extract it from release branch name."
+    required: false
+  release_branch_pattern:
+    description: "The pattern of a release branch."
+    required: false
+  maintenance_branch_pattern:
+    description: "The pattern of a maintenance branch."
+    required: false
+outputs:
+  version:
+    description: "The released version."
+  major_version:
+    description: "The released major version."
+  minor_version:
+    description: "The released minor version."
+  patch_version:
+    description: "The released patch version."
+  prerelease_version:
+    description: "The released prerelease version."
+  build_version:
+    description: "The released build version."
+  is_prerelease:
+    description: "Flag indicating if the release is a pre-release or not."
+  source_branch:
+    description: "The source branch."
+  target_branch:
+    description: "The target branch where release commits should be merged."
+runs:
+  using: "docker"
+  image: "Dockerfile"
