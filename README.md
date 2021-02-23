@@ -17,9 +17,10 @@ The GitHub Action for preparing releases using a GitOps approach and get variabl
 
 ### Example Workflow file
 
-- 1st example: Version is given by release branch and there is a maintenance branch
-  ** Release branch is: `releases/trigger-1.0.0`
-  ** Maintenance branch is: `maintenances/1.0.x`
+**1st example**: Version is given by release branch and there is a maintenance branch
+
+- Release branch is: `releases/trigger-1.0.0`
+- Maintenance branch is: `maintenances/1.0.x`
 
 ```yaml
 jobs:
@@ -44,9 +45,10 @@ jobs:
           echo ${{ steps.release_vars.outputs.target_branch }} # maintenances/1.0.x
 ```
 
-- 2nd example: Version is given by parameter and there is a maintenance branch
-  ** Release branch is: `releases/trigger`
-  ** Maintenance branch is: `maintenances/1.0.x`
+**2nd example**: Version is given by parameter and there is a maintenance branch
+
+- Release branch is: `releases/trigger`
+- Maintenance branch is: `maintenances/1.0.x`
 
 ```yaml
 jobs:
@@ -73,9 +75,10 @@ jobs:
           echo ${{ steps.release_vars.outputs.target_branch }} # maintenances/1.0.x
 ```
 
-- 3rd example: Version is given by parameter and there is not a maintenance branch
-  ** Release branch is: `releases/trigger`
-  ** No maintenance branch
+**3rd example**: Version is given by parameter and there is not a maintenance branch
+
+- Release branch is: `releases/trigger`
+- No maintenance branch
 
 ```yaml
 jobs:

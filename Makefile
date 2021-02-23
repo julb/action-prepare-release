@@ -40,16 +40,16 @@ push:
 format:
 	@exec >&2; \
 	echo "> Formatting."; \
-	venv/bin/autopep8 -ir main.py
+	venv/bin/autopep8 -ir *.py
 
 #lint: @ Lint package
 lint: install.dependencies
 	@exec >&2; \
 	echo "> Linting."; \
 	echo "Running pycodestyle."; \
-	venv/bin/pycodestyle main.py; \
+	venv/bin/pycodestyle *.py; \
 	echo "Running pylint."; \
-	venv/bin/pylint main.py
+	venv/bin/pylint *.py
 
 #version.get: @ Gets the version value.
 version.get: install.dependencies

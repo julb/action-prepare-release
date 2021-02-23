@@ -23,7 +23,7 @@ jobs:
 
     - name: Compute release vars
       id: release_vars
-      uses: ./
+      uses: julb/action-prepare-release@v1
       with:
         version: ${{ steps.current_vars.outputs.version }}
       env:
@@ -43,7 +43,7 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         futureRelease: ${{ steps.release_vars.outputs.version }}
-        addSections: '{"documentation":{"prefix":"**Documentation updates:**","labels":["documentation"]},"tests":{"prefix":"**Testing**","labels":["tests"]}}'
+        addSections: '{"documentation":{"prefix":"📘 Documentation","labels":["type: documentation"]},"tests":{"prefix":"🏹 Dependency Upgrades","labels":["dependency-upgrade"]}}'
         issues: true
         issuesWoLabels: true
         pullRequests: true
@@ -55,6 +55,14 @@ jobs:
         unreleased: true
         verbose: true
         excludeTagsRegex: ^(latest|v[0-9]+)$
+        breakingLabel: "🔨 Breaking changes"
+        breakingLabels: "type: breaking-change"
+        enhancementLabel: "🚀 New features"
+        enhancementLabels: "type: enhancement"
+        bugsLabel: "🐞 Bug fixes"
+        bugsLabels: "type: bug,type: regression"
+        deprecateLabel: "👋 Deprecated"
+        deprecatedLabels: "type: deprecation"
 
     - uses: EndBug/add-and-commit@v7
       with:
