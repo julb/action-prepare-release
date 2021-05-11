@@ -68,6 +68,7 @@ def main():
             release_target_branch_name = github_branch.name
 
     # Return output variables.
+    print(f'::set-output name=name::{github_repo.name}')
     print(f'::set-output name=version::{release_version}')
     print(f'::set-output name=major_version::{release_semver.major}')
     print(f'::set-output name=minor_version::{release_semver.minor}')
